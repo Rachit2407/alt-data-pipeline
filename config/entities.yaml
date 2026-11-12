@@ -1,0 +1,103 @@
+# Curated public tech & SaaS entity registry.
+# Every entry maps a canonical entity_id across public ATS boards, pricing pages, and changelogs.
+# Only unauthenticated, publicly accessible endpoints are configured.
+
+entities:
+  - entity_id: supabase
+    company_name: Supabase
+    domain: supabase.com
+    ticker: null
+    sector: developer_infra
+    ats_provider: null
+    ats_slug: null
+    pricing_url: https://supabase.com/pricing
+    changelog_url: https://supabase.com/rss.xml
+    is_active: true
+
+  - entity_id: posthog
+    company_name: PostHog
+    domain: posthog.com
+    ticker: null
+    sector: product_analytics
+    ats_provider: null
+    ats_slug: null
+    pricing_url: https://posthog.com/pricing
+    changelog_url: https://posthog.com/rss.xml
+    is_active: true
+
+  - entity_id: vercel
+    company_name: Vercel
+    domain: vercel.com
+    ticker: null
+    sector: cloud_frontend
+    ats_provider: greenhouse
+    ats_slug: vercel
+    pricing_url: https://vercel.com/pricing
+    changelog_url: https://vercel.com/atom
+    is_active: true
+
+  - entity_id: stripe
+    company_name: Stripe
+    domain: stripe.com
+    ticker: null
+    sector: fintech_infra
+    ats_provider: greenhouse
+    ats_slug: stripe
+    pricing_url: https://stripe.com/pricing
+    changelog_url: null
+    is_active: true
+
+  - entity_id: datadog
+    company_name: Datadog
+    domain: datadoghq.com
+    ticker: DDOG
+    sector: observability
+    ats_provider: greenhouse
+    ats_slug: datadog
+    pricing_url: https://www.datadoghq.com/pricing/
+    changelog_url: https://www.datadoghq.com/blog/index.xml
+    is_active: true
+
+  - entity_id: cloudflare
+    company_name: Cloudflare
+    domain: cloudflare.com
+    ticker: NET
+    sector: edge_security
+    ats_provider: greenhouse
+    ats_slug: cloudflare
+    pricing_url: https://www.cloudflare.com/plans/
+    changelog_url: https://developers.cloudflare.com/changelog/rss.xml
+    is_active: true
+
+  - entity_id: figma
+    company_name: Figma
+    domain: figma.com
+    ticker: null
+    sector: design_saas
+    ats_provider: greenhouse
+    ats_slug: figma
+    pricing_url: https://www.figma.com/pricing/
+    changelog_url: null
+    is_active: true
+
+  - entity_id: anthropic
+    company_name: Anthropic
+    domain: anthropic.com
+    ticker: null
+    sector: foundation_models
+    ats_provider: greenhouse
+    ats_slug: anthropic
+    pricing_url: https://www.anthropic.com/pricing
+    changelog_url: null
+    is_active: true
+
+  - entity_id: wealthfront
+    company_name: Wealthfront
+    domain: wealthfront.com
+    ticker: null
+    sector: fintech
+    ats_provider: lever
+    ats_slug: wealthfront
+    pricing_url: null
+    changelog_url: null
+    is_active: true
