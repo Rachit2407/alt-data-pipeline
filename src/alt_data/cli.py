@@ -12,6 +12,7 @@ from alt_data.collectors.ats_jobs import collect_ats_board
 from alt_data.collectors.changelogs import collect_changelog_feed
 from alt_data.collectors.pricing_pages import collect_pricing_page
 from alt_data.compliance import PoliteHttpClient
+from alt_data.dashboard import run_dashboard_server
 from alt_data.models import EntityConfig, load_entities, utc_now
 from alt_data.storage.diff_engine import render_signal_digest_markdown
 from alt_data.storage.duckdb_store import PitWarehouse
@@ -78,6 +79,10 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Optional ISO-8601 UTC timestamp (defaults to current UTC time).",
     )
+
+    dash_cmd = sub.add_parser("dashboard", help="Start local interactive PIT web dashboard.")
+    dash_cmd.add_argument("--host", default="127.0.0.1", help="Host address (default: 127.0.0.1).")
+    dash_cmd.add_argument("--port", type=int, default=8501, help="Port to listen on (default: 8501).")
     return parser
 
 
@@ -243,6 +248,10 @@ def main(argv: Optional[list[str]] = None) -> int:
                 encoding="utf-8",
             )
             print(f"Generated signal digest at {md_path} and {json_path}")
+            return 0
+
+        if args.command == "dashboard":
+            run_dashboard_server(db_path=db_path, host=args.host, port=args.port)
             return 0
 
     return 1

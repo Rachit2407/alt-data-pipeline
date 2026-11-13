@@ -148,6 +148,10 @@ alt-data report
 
 # 7. Run downstream analytical script directly against Parquet files
 python examples/pit_analysis.py
+
+# 8. Launch the local interactive Point-in-Time web dashboard
+alt-data dashboard
+# Open http://127.0.0.1:8501 in your browser
 ```
 
 ---
@@ -163,6 +167,7 @@ python examples/pit_analysis.py
 | `alt-data query-pit --as-of <ISO-8601> [--entity ID]` | Queries the exact active job and pricing state known at a past timestamp. |
 | `alt-data export` | Exports all 6 warehouse tables to `data/exports/parquet/` and `data/exports/csv/`. |
 | `alt-data report [--as-of <ISO-8601>]` | Generates a structured Markdown and JSON signal digest in `data/exports/`. |
+| `alt-data dashboard [--port 8501]` | Launches the local interactive web dashboard with Point-in-Time date sliders and live charts. |
 
 ---
 
