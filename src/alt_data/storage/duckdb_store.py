@@ -708,16 +708,16 @@ class PitWarehouse:
             )
         return results
 
-    def get_recent_signal_diffs(self, limit: int = 25) -> list[dict[str, Any]]:
-        """Return recent high-signal diffs (prioritizing pricing and velocity events)."""
+    def get_recent_signal_diffs(self, limit: int = 35) -> list[dict[str, Any]]:
+        """Return recent high-signal diffs ordered chronologically by detection time."""
         rows = self.conn.execute(
             """
             SELECT entity_id, source_type, signal_type, external_ref,
                    field_name, old_value, new_value, pct_delta, detected_at_utc
             FROM fact_signal_diffs
             ORDER BY
-                CASE WHEN signal_type IN ('PRICE_CHANGE', 'HIRING_VELOCITY_SHIFT', 'TIER_ADDED', 'TIER_REMOVED') THEN 0 ELSE 1 END,
-                detected_at_utc DESC
+                detected_at_utc DESC,
+                CASE WHEN signal_type IN ('PRICE_CHANGE', 'HIRING_VELOCITY_SHIFT') THEN 0 ELSE 1 END
             LIMIT ?
             """,
             [limit],
